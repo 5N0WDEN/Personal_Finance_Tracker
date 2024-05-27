@@ -38,14 +38,7 @@ class EmailSender:
         if self.APIKEY and self.from_email and len(email) > 0:
             content = Content(
                 mime_type="text/html",
-                content=f"<div class='container'>
-                            <h2 align='Center'>Verify your account</h2>
-                            <h3>Dear {username},</h3>
-                            <h3>Please click the button below to verify your account or activate your account:</h3>
-                            <button><a href={activate_url} class='btn'>Verify Your Account</a></button>
-                            <h3>Thank you!</h3>
-                            <h3>Sincerely,<br>Personal Finance Tracker</h3>
-                        </div>"
+                content=f"<div class='container'><h2 align='Center'>Verify your account</h2><h3>Dear {username},</h3><h3>Please click the button below to verify your account or activate your account:</h3><button><a href={activate_url} class='btn'>Verify Your Account</a></button><h3>Thank you!</h3><h3>Sincerely,<br>Personal Finance Tracker</h3></div>"
             )
             message = Mail(self.from_email, email, subject, content)
             try:
