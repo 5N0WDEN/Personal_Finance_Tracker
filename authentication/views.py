@@ -72,13 +72,13 @@ class RegisterationView(View):
             token_generator = AppTokenGenerator()
             link = reverse('activate', kwargs = {'uidb64' : uidb64, 'token': token_generator._make_url_value(user, timestamp)})
             
-            activate_url = f"http://{domain}{link}"
-            #activate_url = f"http://192.168.0.213:8000/{link}"
+            #activate_url = f"http://{domain}{link}"
+            activate_url = f"http://192.168.0.213:8000/{link}"
             #print(activate_url)
             email_body = f"Hi, {user.username}. Please use this link to verify your account\n {activate_url}"
             email_subject = "Activate your account"
             # add email using sendGrid or may sendGrid is not working at night
-            #emailsender = EmailSender() 
+            emailsender = EmailSender() 
             #emailsender.send_verification_mail(email, email_subject, activate_url, user.username)
             #return redirect(activate_url)
             messages.success(request, "Account successfully created")
