@@ -7,4 +7,4 @@ class UserPreferences(models.Model):
     currency = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self) -> str:
-        return f"{user}s preferences"
+        return f"{self.user}s preferences"
