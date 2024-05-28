@@ -78,13 +78,13 @@ class RegisterationView(View):
             email_body = f"Hi, {user.username}. Please use this link to verify your account\n {activate_url}"
             email_subject = "Activate your account"
             # add email using sendGrid or may sendGrid is not working at night
-            emailsender = EmailSender() 
-            emailsender.send_verification_mail(email, email_subject, activate_url, user.username)
+            #emailsender = EmailSender() 
+            #emailsender.send_verification_mail(email, email_subject, activate_url, user.username)
             #return redirect(activate_url)
             messages.success(request, "Account successfully created")
             messages.info(request, "You'll get verification link shortly")
-            return render(request, 'authentication/register.html')
-            #return redirect(activate_url)
+            #return render(request, 'authentication/register.html')
+            return redirect(activate_url)
         messages.error(request, "Username or Email is already registered")
         return render(request, 'authentication/register.html')
         '''messages.success(request, "Success whatapp success")

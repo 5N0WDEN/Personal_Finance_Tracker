@@ -27,7 +27,7 @@
           <li class="nav-item text-nowrap">
           <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <input type="submit" class="nav-link text text-uppercase" value="Sign out">
+            <input type="submit" class="btn btn-primary rounded" value="Sign out">
           </form>
         </li>
       </ul>
@@ -38,6 +38,7 @@
     {% include 'partials/_sidebar.html' %}
     
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 sidebar">
+      <div class="container-fluid">
       {% block content %}
       
       
@@ -45,6 +46,7 @@
       
       
       {% endblock %}
+      </div>
     </main>
   </div>
 </div>
