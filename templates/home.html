@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light bg-primary sticky-top flex-md-nowrap shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand px-3" href="#">FINTRACK</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav mr-auto h5">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">HOME</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#what-we-do">WHAT WE DO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#team">TEAM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#contact">CONTACT</a>
+                </li>
+                </ul>
+                <div class="d-flex flex-grow-1 justify-content-end align-items-center">
+                    <div class="input-group rounded w-auto">
+                        <ul class="navbar-nav px-3 h6">
+                            <li class="nav-item text-nowrap">
+                                <a class="btn btn-primary rounded px-3 mr-4" href="{% url 'login' %}">LOGIN</a>
+                            </li>
+                            <li style="padding-right: 10px;"></li>
+                            <li class="nav-item text-nowrap">
+                                <a class="btn btn-primary rounded ml-2" href="{% url 'register' %}">SIGNUP</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                               
+            </div>  
+        </div>   
+    </header>
+    
+
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center position-relative">
+        <div class="hero-overlay"></div>
+        <img src="{% static 'images/hero-background.jpg' %}" class="img-fluid position-absolute w-100" style="height: 70vh; object-fit: cover; top:0vh;" alt="Responsive image">
+        <div class="container text-center text-md-left position-relative" data-aos="fade-up">
+            <h1 class="text-white">Welcome to <span>FinTrack</span></h1>
+            <h2 class="text-white">Transforming Your Finances, One Click at a Time</h2>
+            <a href="{% url 'register' %}" class="btn btn-primary rounded scrollto">Get Started</a>
+        </div>
+    </section>
+
+    <section id="what-we-do" class="what-we-do bg-light py-5">
+        <div class="container text-center">
+            <div class="section-title text-center">
+                <h2>What We Do</h2>
+                <p>At FinTrack, we empower individuals to take control of their financial well-being through our comprehensive Personal Finance Tracker. Our platform offers intuitive tools for managing income, expenses, budgets, and more, all in one place.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Expense Tracking</h4>
+                            <p class="card-text">Expense tracking simplifies financial management by systematically recording and categorizing expenditures. It provides valuable insights into spending patterns, aiding in budgeting and financial planning for better money management.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Financial Goal Setting</h4>
+                            <p class="card-text">With our comprehensive financial goal-setting features, you can define clear objectives and effortlessly monitor your progress. By staying on track, you'll reach your aspirations faster and with greater confidence in your financial future.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Expense Analysis</h4>
+                            <p class="card-text">Our expense analysis tool provides a deep dive into spending habits, offering valuable insights and highlighting opportunities for refinement. With detailed data at your fingertips, you can make informed decisions to enhance financial well-being efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-4">
+              <img src="{% static 'images/about.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+                <div class="section-title text-center">
+                    <h2>About Us</h2>
+                </div>
+              <p>
+                FinTrack is committed to demystifying personal finance management for individuals from all walks of life. Regardless of your financial expertise, our platform offers a seamless experience, empowering users to navigate their financial journey effortlessly. From seasoned investors to novices, our user-friendly interface coupled with robust features ensures that you stay informed and in control of your finances. We strive to simplify complex financial concepts, providing clarity and accessibility to empower users to make informed decisions. At FinTrack, we believe that managing your finances should be straightforward and stress-free, enabling you to achieve your financial goals with confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="services" class="services section-bg ml-2">
+        <div class="container">
+          <div class="section-title text-center">
+            <h2>Services</h2>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-6 pt-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Dashboard</h5>
+                  <p class="card-text">The dashboard provides users with an intuitive and visual overview of their financial status. It consolidates key financial metrics and insights into a single interface, allowing users to quickly assess their income, expenses, savings, and overall financial health.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 pt-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Budgeting</h5>
+                  <p class="card-text">Budgeting empowers users to set financial goals and allocate resources effectively to achieve those goals. It helps users plan their spending, monitor progress, and make adjustments to stay within budget and achieve financial objectives.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 pt-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Reporting</h5>
+                  <p class="card-text">Reporting generates structured summaries of financial data, enabling users to analyze their income, expenses, and savings over specific periods. It facilitates informed decision-making and helps users understand their financial habits.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 pt-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Notification System</h5>
+                  <p class="card-text">The notification system sends alerts to users about important events, such as budget overruns or upcoming transactions. It enhances user engagement and keeps users informed about their financial status.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 pt-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Expense Splitting</h5>
+                  <p class="card-text">Expense splitting allows users to divide shared expenses among multiple individuals and track who owes whom. It simplifies managing group finances and ensures fair distribution of expenses.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 pt-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Transaction Management</h5>
+                  <p class="card-text">Transaction management enables users to add, edit, and delete income and expense transactions. It forms the core functionality of the financial management system, allowing users to track their financial activities accurately.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title text-center">
+          <h2>Team</h2>
+          <p>Meet the passionate team behind FinTrack, dedicated to providing you with the best personal finance management experience.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch text-center">
+            <div class="col-sm-6 pt-4">
+                <div class="member">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'images/team-1.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">William Anderson</h5>
+                          <span>CTO</span>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 pt-4">
+                <div class="member">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'images/team-2.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">Walter White</h5>
+                        <span>Chief Executive Officer</span>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 pt-4">
+                <div class="member">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'images/team-3.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">Sarah Jhinson</h5>
+                        <span>Product Manager</span>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </section>
+
+      <section id="contact" class="contact section-bg">
+        <div class="container">
+  
+          <div class="section-title text-center">
+            <h2>Contact</h2>
+            <p>Have questions or need support? Reach out to us at</p>
+          </div>
+  
+          <div class="row mt-5 justify-content-center">
+  
+            <div class="col-lg-10">
+  
+              <div class="info-wrap">
+                <div class="row">
+                  <div class="col-lg-4 info">
+                    <i class="bi bi-geo-alt"></i>
+                    <h4>Location:</h4>
+                    <li>Bandra</li>
+                    <li>Panvel</li>
+                  </div>
+  
+                  <div class="col-lg-4 info mt-4 mt-lg-0">
+                    <i class="bi bi-envelope"></i>
+                    <h4>Email:</h4>
+                    <p>utkarshmhatre.7777@gamil.com<br>personalfinancetracker007@gmail.com</p>
+                  </div>
+  
+                  <div class="col-lg-4 info mt-4 mt-lg-0">
+                    <i class="bi bi-phone"></i>
+                    <h4>Call:</h4>
+                    <p>+91 9987933465<br></p>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+          </div>
+        </div>
+      </section>
+
+</body>
+</html>

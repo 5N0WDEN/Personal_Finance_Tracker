@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TrulyExpenses {% block title %}
+    <title>FinTrack {% block title %}
         {% endblock %}
     </title>
 
@@ -16,21 +16,22 @@
   </head>
   <body>
 
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">TrulyExpenses</a>
+    <header class="navbar navbar-expand-lg navbar navbar-dark bg-primary sticky-top flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand me-0 px-3 fs-6 text-white w-10" href="#">FinTrack</a>
       <div class="d-flex flex-grow-1 justify-content-end align-items-center">
-        <div class="input-group rounded w-auto me-2">
-          <input type="text" class="form-control form-control-sm rounded" placeholder="Search" aria-label="Search" aria-describedby="button-search">
-          <button class="btn btn-secondary btn-sm" type="button" id="button-search">Search</button>
+        <div class="input-group rounded w-auto">
+          <input type="text" class="form-control form-control-sm h-30 p-2 rounded" placeholder="Search" aria-label="Search" aria-describedby="button-search">
+          <button class="btn btn-secondary rounded" type="button" id="button-search">Search</button>
+          <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-secondary rounded" value="Sign out">
+              </form>
+            </li>
+          </ul>
         </div>
-        <ul class="navbar-nav px-3">
-          <li class="nav-item text-nowrap">
-          <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" class="btn btn-primary rounded" value="Sign out">
-          </form>
-        </li>
-      </ul>
+      </div> 
     </header>
 
 <div class="container-fluid">
@@ -50,9 +51,5 @@
     </main>
   </div>
 </div>
-<!--
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script>
--->
     <script src="{% static 'js/main.js' %}"></script></body>
 </html>

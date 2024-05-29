@@ -6,21 +6,7 @@ const usernameSuccessOutput = document.querySelector('.usernameSuccessOutput');
 const emailSuccessOutput = document.querySelector('.emailSuccessOutput');
 const showPasswordToggle = document.querySelector('.showPasswordToggle');
 const passwordField = document.querySelector('#passwordField');
-
-
-const handleToggleInput=(e)=>{
-
-    if(showPasswordToggle.textContent === 'SHOW'){
-        showPasswordToggle.textContent === 'HIDE';
-        passwordField.setAttribute("type", "password");
-    }else{
-        showPasswordToggle.textContent === 'SHOW';
-        passwordField.setAttribute("type", "text");
-    }
-};
-
-showPasswordToggle.addEventListener("click", handleToggleInput());
-
+const submitBtn = document.querySelector('.submit-btn');
 
 emailField.addEventListener("keyup", (e) => {
     const emailVal = e.target.value;
@@ -38,12 +24,14 @@ emailField.addEventListener("keyup", (e) => {
         })
             .then(res=>res.json())
             .then(data=>{
-                console.log('object', data);
                 emailSuccessOutput.style.display = "none";
                 if(data.email_error){
+                    submitBtn.disabled = true;
                     emailField.classList.add('is-invalid');
                     emailfeedBackArea.style.display = "block";
                     emailfeedBackArea.innerHTML=`<p>${data.email_error}</p>`;
+                }else{
+                    submitBtn.removeAttribute("disabled");
                 }
             });
     }
@@ -66,12 +54,14 @@ usernameField.addEventListener("keyup", (e) =>{
         })
             .then(res=>res.json())
             .then(data=>{
-                console.log('object', data);
                 usernameSuccessOutput.style.display = 'none';
                 if(data.username_error){
                     usernameField.classList.add('is-invalid');
                     feedBackArea.style.display = "block";
                     feedBackArea.innerHTML=`<p>${data.username_error}</p>`;
+                    submitBtn.disabled = true;
+                }else{
+                    submitBtn.removeAttribute("disabled");
                 }
             });
     }
