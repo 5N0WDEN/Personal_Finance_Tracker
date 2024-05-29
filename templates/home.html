@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>FinTrack</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/home.css' %}" rel="stylesheet">
@@ -11,30 +11,27 @@
 <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light bg-primary sticky-top flex-md-nowrap shadow">
         <div class="container-fluid">
-            <a class="navbar-brand px-3" href="{% url 'home' %}">FINTRACK</a>
+            <a class="navbar-brand px-3" href="{% url 'home' %}"><b>FINTRACK</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav mr-auto h5">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">HOME</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#what-we-do">WHAT WE DO</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">ABOUT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">SERVICES</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#team">TEAM</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#contact">CONTACT</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#what-we-do">WHAT WE DO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#contact">CONTACT</a>
+                    </li>
                 </ul>
                 <div class="d-flex flex-grow-1 justify-content-end align-items-center">
                     <div class="input-group rounded w-auto">
@@ -184,58 +181,6 @@
           </div>
         </div>
       </section>
-
-    <section id="team" class="team">
-      <div class="container">
-
-        <div class="section-title text-center">
-          <h2>Team</h2>
-          <p>Meet the passionate team behind FinTrack, dedicated to providing you with the best personal finance management experience.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch text-center">
-            <div class="col-sm-6 pt-4">
-                <div class="member">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{% static 'images/team-1.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">William Anderson</h5>
-                            <span>CTO</span>
-                            <p class="card-text">William Anderson, our CTO, leads technological innovation.</p>
-                        </div>                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 pt-4">
-                <div class="member">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{% static 'images/team-2.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Sarah Jhinson</h5>
-                            <span>Product Manager</span>
-                            <p class="card-text">Sarah Jhinson, our Product Manager, delivers visionary products.</p>
-                        </div>                                              
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 pt-4">
-                <div class="member">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{% static 'images/team-3.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Walter White</h5>
-                            <span>Chief Executive Officer</span>
-                            <p class="card-text">Walter White, our CEO, drives strategic leadership.</p>
-                        </div>                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-      </div>
-    </section>
-
       <section id="contact" class="contact section-bg">
         <div class="container">
   
@@ -277,6 +222,61 @@
         </div>
       </section>
 
-      <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
+
+<!-- Teams section
+    
+    <section id="team" class="team">
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2>Team</h2>
+                <p>Meet the passionate team behind FinTrack, dedicated to providing you with the best personal finance management experience.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 pt-4">
+                    <div class="member">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{% static 'images/team-1.jpg' %}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">William Anderson</h5>
+                                <span>CTO</span>
+                                <p class="card-text">William Anderson, our CTO, leads technological innovation.</p>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 pt-4">
+                    <div class="member">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{% static 'images/team-2.jpg' %}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Sarah Jhinson</h5>
+                                <span>Product Manager</span>
+                                <p class="card-text">Sarah Jhinson, our Product Manager, delivers visionary products.</p>
+                            </div>                                              
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 pt-4">
+                    <div class="member">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{% static 'images/team-3.jpg' %}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Walter White</h5>
+                                <span>Chief Executive Officer</span>
+                                <p class="card-text">Walter White, our CEO, drives strategic leadership.</p>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+-->
