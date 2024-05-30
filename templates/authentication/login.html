@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <div class="card mt-5">
+        <div class="card mt-4">
             <div class="card-body">
                 <div class="card-title py-3">
                     <h4>Login to your account</h4>
@@ -40,6 +40,10 @@
                         <input type="submit" value="Login" class="btn btn-block btn-primary mt-2 submit-btn rounded">
                     </div>
                 </form>
+                <div class="container">
+                    <span class="text-lead lead">Don't have an account?</span><a href="{% url 'register' %}">Register</a><br>
+                    <span class="text-lead lead">Forgot Password?</span><a href="{% url 'request-password' %}">Reset it</a>
+                </div>
             </div>
         </div>
     </div>

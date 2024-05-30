@@ -1,0 +1,23 @@
+[Categories]
+Housing
+Transportation
+Food
+Utilities   
+Clothing
+Medical/Healthcare
+Insurance
+Household Items/Supplies
+Personal
+Entertainment
+Gifts/Donations
+Education
+Debt
+
+[Sources]
+Salary/Wages
+Business Profits
+Rental Income
+Investment Income
+Freelancing/Contract Work
+Royalties
+Pension/Retirement Benefits
