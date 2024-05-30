@@ -3,19 +3,25 @@
 {% block content %}
 
 <div class="container mt-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'expenses' %}">Expences</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Add Expences</li>
-        </ol>
-    </nav>
+    <div class="row">
+        <div class="col-md 10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'expenses' %}">Expences</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Expences</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="card mt-4">
                 <div class="card-body">
-                    <form action="{% url 'add-expenses' %}" method="post">
+                    <form action="{% url 'expense-edit' values.id %}" method="post">
                     {% csrf_token %}
                     {% include 'partials/_messages.html' %}
                         <div class="form-group mt-2">
@@ -56,15 +62,25 @@
                                 type="date" 
                                 class="form-control form-control-sm" 
                                 name="expense_date"
-                                value="{{values.expense_date}}"
+                                value="{{values.date}}"
                             >
                         </div>
-                        <div class="d-grid">
-                            <input 
-                                type="submit" 
-                                value="Save" 
-                                class="btn btn-primary btn-primary-sm mt-2 rounded"
-                            >
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input 
+                                    type="submit" 
+                                    value="Save" 
+                                    class="btn btn-primary btn-primary-sm mt-2 px-3 rounded"
+                                >
+                            </div>
+                            <div class="col-md-2">
+                                <a 
+                                    href="{% url 'expense-delete' expense.id %}" 
+                                    class="btn btn-danger mt-2 rounded"
+                                    style="margin-left: 15px;">
+                                    Delete
+                                </a>
+                            </div>
                         </div>
                     </ul>
                     </form>
