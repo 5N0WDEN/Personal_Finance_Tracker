@@ -22,10 +22,10 @@
         <div class="input-group rounded w-auto">
           <!--<input type="text" class="form-control form-control-sm h-30 p-2 rounded" placeholder="Search" aria-label="Search" aria-describedby="button-search">
           <button class="btn btn-secondary rounded" type="button" id="button-search">Search</button>-->
-          <ul class="navbar-nav px-3">
+          <ul class="navbar-nav px-5">
             <li class="nav-item text-nowrap">
-              <a href="" class="nav-link">
-                {{request.user}}
+              <a href="{ url 'profile' }" class="nav-link ml-2">
+                PROFILE(<b>{{request.user}}</b>)
               </a>
             </li>
             <li class="nav-item text-nowrap">

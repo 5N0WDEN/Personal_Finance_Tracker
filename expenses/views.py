@@ -8,6 +8,7 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from userpreferences.models import UserPreferences
+import datetime
 
 # Create your views here.
 @csrf_exempt
@@ -60,6 +61,7 @@ def add_expenses(request):
         category = request.POST['category']
         date = request.POST['expense_date']
         description = request.POST['description']
+        receipt = request.POST['receipt']
         if not amount or not description or not date or not category:
             if not amount:
                 messages.error(request, "Amount is required.")
@@ -71,7 +73,10 @@ def add_expenses(request):
                 messages.error(request, "Category is required.")
             return render(request, 'expenses/add_expenses.html', context)
         else:
-            Expence.objects.create(owner=request.user, amount=amount, date=date, category=category, description=description)
+            if receipt:
+                Expence.objects.create(owner=request.user, amount=amount, date=date, category=category, description=description, receipt=receipt)
+            else:
+                Expence.objects.create(owner=request.user, amount=amount, date=date, category=category, description=description)
             messages.success(request, "Expense saved successfully.")
             return redirect('expenses')
             
@@ -119,3 +124,26 @@ def delete_expense(request, id):
     expense.delete()
     messages.success(request, "Expense removed.")
     return redirect('expenses')
+
+def expense_category_summary(request):
+    todays_date = datetime.date.today()
+    six_monthns_ago = todays_date-datetime.timedelta(days=30*6)
+    expenses = Expence.objects.filter(
+        date__gte=six_monthns_ago, date_lte=todays_date)
+    finalrep = {}
+
+    def get_category(expense):
+        return expense.category
+    category_list = list(set(map(get_category, expenses)))
+
+    def get_expense_category_amount(category):
+        amount = 0
+        filter_by_category = expenses.filter(category=category)
+        for item in filter_by_category:
+            amount += item.amount
+
+        return amount
+
+    for x in expenses:
+        for y in category_list:
+            finalrep[y] = get_expense_category_amount(y)

@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <div class="card mt-5">
+        <div class="card mt-3">
             <div class="card-body">
                 <div class="card-title py-3">
                     <h4>Register for a freee account</h4>
@@ -61,6 +61,10 @@
                         <input type="submit" value="Register" class="btn btn-block btn-primary mt-2 submit-btn">
                     </div>
                 </form>
+                <div class="container">
+                    <span class="text-lead lead">Have an account?</span><a href="{% url 'login' %}">Login</a><br>
+                    <span class="text-lead lead">Forgot Password?</span><a href="{% url 'request-password' %}">Reset it</a>
+                </div>
             </div>
         </div>
     </div>

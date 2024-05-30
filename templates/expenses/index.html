@@ -16,13 +16,12 @@
             </nav>
         </div>
     </div>
+    {% include 'partials/_messages.html' %}
     <a href="{% url 'add-expenses' %}" class="btn btn-primary rounded mt-3"> 
         Add Expence
     </a>
     <div class="container">
-    {% include 'partials/_messages.html' %}
     {% if expenses.count %}
-
         <div class="row table">
             <div class="col-md-8">
                 
@@ -42,6 +41,7 @@
                         <th>Category</th>
                         <th>Description</th>
                         <th>Date</th>
+                        <th>Receipt</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -52,6 +52,7 @@
                         <td>{{expense.category}}</td>
                         <td>{{expense.description}}</td>
                         <td>{{expense.date}}</td>
+                        <td><img scr="{{expense.receipt}}"></td>
                         <td><a 
                                 href="{% url 'expense-edit' expense.id %}" 
                                 class="btn btn-secondary btn-sm rounded">
@@ -63,7 +64,7 @@
                 </tbody>
             </table>
         </div>
-
+        <img scr="{{expense.receipt}}">
         <div class="table-output">
             <table class="table table-stripped table-hover">
                 <thead>
