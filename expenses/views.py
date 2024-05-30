@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from userpreferences.models import UserPreferences
 
 # Create your views here.
 @csrf_exempt
@@ -15,10 +16,10 @@ def search_expenses(request):
     if request.method == 'POST':
         search_str = json.loads(request.body).get('searchText', '')
         expenses = Expence.objects.filter(
-            amount__istartswith = search_str, owner=request.user) or Expence.objects.filter(
-            date__istartswith = search_str, owner=request.user) or Expence.objects.filter(
+            amount__icontains = search_str, owner=request.user) or Expence.objects.filter(
+            date__icontains = search_str, owner=request.user) or Expence.objects.filter(
             description__icontains=search_str, owner=request.user) or Expence.objects.filter(
-            category__istartswith=search_str, owner=request.user)
+            category__icontains=search_str, owner=request.user)
 
         data = expenses.values()
 
@@ -32,9 +33,15 @@ def index(request):
     paginator = Paginator(expenses, 4)
     page_number = request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
+    try:
+        user_preferences = UserPreferences.objects.get(user=request.user)
+        currency = user_preferences.currency
+    except UserPreferences.DoesNotExist:
+        currency = 'INR - Indian Rupee'
     context = {
         'expenses' : expenses,
         'page_obj' : page_obj,
+        'currency' : currency,
     }
     return render(request, 'expenses/index.html', context)
 
