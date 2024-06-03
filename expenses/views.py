@@ -31,7 +31,7 @@ def search_expenses(request):
 def index(request):
     categories = Category.objects.all()
     expenses = Expence.objects.filter(owner=request.user)
-    paginator = Paginator(expenses, 4)
+    paginator = Paginator(expenses, 5)
     page_number = request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
     try:
@@ -73,10 +73,7 @@ def add_expenses(request):
                 messages.error(request, "Category is required.")
             return render(request, 'expenses/add_expenses.html', context)
         else:
-            if receipt:
-                Expence.objects.create(owner=request.user, amount=amount, date=date, category=category, description=description, receipt=receipt)
-            else:
-                Expence.objects.create(owner=request.user, amount=amount, date=date, category=category, description=description)
+            Expence.objects.create(owner=request.user, amount=amount, date=date, category=category, description=description)
             messages.success(request, "Expense saved successfully.")
             return redirect('expenses')
             
