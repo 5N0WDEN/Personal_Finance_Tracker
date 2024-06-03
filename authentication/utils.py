@@ -42,11 +42,28 @@ class EmailSender:
             )
             threading.Thread(target=self.send_email, args=(email, subject, content), daemon=False).start()
     
-    def send_password_reset_mail(self, email, subject, reset_url, username):
+    def send_password_reset_mail1(self, email, subject, reset_url, username):
         if self.APIKEY and self.from_email and len(email) > 0:
             content = Content(
                 mime_type="text/html",
                 content=f"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Reset Your Password</title><style>body{{font-family:Arial, sans-serif;margin:0;padding:0;background-color:#f4f4f4;}}.container{{max-width:600px;margin:20px auto;padding:20px;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1);}}h1{{text-align:center;color:#007bff;}}p{{margin-bottom:15px;}}.btn{{display:inline-block;padding:10px 20px;background-color:#e74c3c;color:#ffffff;text-decoration:none;border-radius:5px;}}.btn:hover{{background-color:#c0392b;}}</style></head><body><div class='container'><h1>Reset Your Password</h1><p>Dear {username},</p><p>We received a request to reset your password. Please click the button below to reset it:</p><h3><a href='{reset_url}' class='btn'>Reset Your Password</a></h3><p>If you did not request a password reset, please ignore this email or contact support.</p><p>Thank you!</p><p>Sincerely,<br>Personal Finance Tracker</p></div></body></html>"
+            )
+            threading.Thread(target=self.send_email, args=(email, subject, content), daemon=False).start()
+
+    def send_password_reset_mail2(self, email, subject, reset_url, username):
+        if self.APIKEY and self.from_email and len(email) > 0:
+            content = Content(
+                mime_type="text/html",
+                content=f"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Reset Your Password</title><style>body{{font-family:Arial, sans-serif;margin:0;padding:0;background-color:#f4f4f4;}}.container{{max-width:600px;margin:20px auto;padding:20px;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1);}}h1{{text-align:center;color:#007bff;}}p{{margin-bottom:15px;}}.btn{{display:inline-block;padding:10px 20px;background-color:#e74c3c;color:#ffffff;text-decoration:none;border-radius:5px;}}.btn:hover{{background-color:#c0392b;}}</style></head><body><div class='container'><h1>Reset Your Password</h1><p>Dear {username},</p><p>We received a request to reset your password. If you made this request, please click the button below to reset your password:</p><h3><a href='{reset_url}' class='btn'>Reset Your Password</a></h3><p>If you did not request a password reset, someone may be trying to gain access to your account. Please ignore this email or contact support immediately to secure your account.</p><p>Thank you!</p><p>Sincerely,<br>Personal Finance Tracker</p></div></body></html>"
+            )
+            threading.Thread(target=self.send_email, args=(email, subject, content), daemon=False).start()
+
+    def send_password_reset_mail(self, email, subject, login_url, username):
+        login_url = "https://the-shooting-star.com/perfect-3-day-goa-itinerary/"
+        if self.APIKEY and self.from_email and len(email) > 0:
+            content = Content(
+                mime_type="text/html",
+                content=f"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Account Activated</title><style>body{{font-family:Arial, sans-serif;margin:0;padding:0;background-color:#f4f4f4;}}.container{{max-width:600px;margin:20px auto;padding:20px;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1);}}h1{{text-align:center;color:#28a745;}}p{{margin-bottom:15px;}}.btn{{display:inline-block;padding:10px 20px;background-color:#007bff;color:#ffffff;text-decoration:none;border-radius:5px;}}.btn:hover{{background-color:#0056b3;}}</style></head><body><div class='container'><h1>Account Activated</h1><p>Dear {username},</p><p>We are excited to inform you that your account has been successfully activated. You can now use your account whenever you like.</p><p>Click the button below to log in to your account:</p><h3><a href='{login_url}' class='btn'>Log In</a></h3><p>Thank you for choosing Personal Finance Tracker.</p><p>Sincerely,<br>Personal Finance Tracker Team</p></div></body></html>"
             )
             threading.Thread(target=self.send_email, args=(email, subject, content), daemon=False).start()
 

@@ -66,31 +66,25 @@
                             >
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                <input 
-                                    type="submit" 
-                                    value="Save" 
-                                    class="btn btn-primary btn-primary-sm mt-2 px-3 rounded"
-                                >
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
+                            <div class="col-md-6">
+                                <div class="d-grid">
                                     <input 
                                         type="submit" 
                                         value="Save" 
-                                        class="btn btn-primary btn-primary-sm mt-2 px-3 rounded"
+                                        class="btn btn-primary btn-primary-sm mt-2 rounded"
                                     >
                                 </div>
-                            <div class="col-md-2">
-                                <a 
-                                    href="{% url 'expense-delete' expense.id %}" 
-                                    class="btn btn-danger mt-2 rounded"
-                                    style="margin-left: 15px;">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-grid">
+                                    <a 
+                                        href="{% url 'expense-delete' expense.id %}" 
+                                        class="btn btn-danger mt-2 rounded px-3">
                                     Delete
-                                </a>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </ul>
                     </form>
                 </div>
             </div>  

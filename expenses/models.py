@@ -8,7 +8,7 @@ class Expence(models.Model):
     date = models.DateField(default=now)
     description = models.TextField()
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
-    #category = models.CharField(max_length=255)
+    category = models.CharField(max_length=255, default="None")
 
     def __str__(self) -> str:
         return self.category
